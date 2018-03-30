@@ -160,13 +160,13 @@ console.log(ninja.__proto__ === Person.prototype)       // 输出5：false
 
 下面这是 Ninja 对象，可以仔细看下：
 
-![原型链之 Ninja 对象](../img/JavaScript/PrototypeChain_code.png)
+![原型链之 Ninja 对象](/img/JavaScript/PrototypeChain_code.png)
 
 [原型链之 Ninja 对象](http://huanqiang.wang/img/JavaScript/PrototypeChain_code.png)
 
 下面是结构图： 
 
-![原型链之 Ninja 对象](../img/JavaScript/PrototypeChain_Struct.png)
+![原型链之 Ninja 对象](/img/JavaScript/PrototypeChain_Struct.png)
 
 [原型链之 Ninja 对象](http://huanqiang.wang/img/JavaScript/PrototypeChain_Struct.png)
 

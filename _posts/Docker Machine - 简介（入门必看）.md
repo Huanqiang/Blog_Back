@@ -25,7 +25,7 @@ date: 2018-01-31 10:31:49
 
 当人们说起 `Docker` 的时候（比如 `Mac` 上安装的 `Docker for Mac`），通常指的就是 `Docker Engine`，它**是由 Docker Daemon、REST API 和 命令行接口（CLI）客户端三个部分组成的（C/S）应用程序**，其中REST API 用于与 `daemon` 交互， 命令行接口（`CLI`）客户端则是接受用户用户输入命令并通过 `REST API` 包装后传递给 `daemon`。`Docekr Engine` 接受来自 `CLI` 的 `Docker` 命令，比如 `docker run <image>` 等。
 
-![Docker Engine](../img/DockerMachineIntroduction/engine.png)
+![Docker Engine](/img/DockerMachineIntroduction/engine.png)
 
 **Docker Machine 是一个配置和管理 Docker 化的（安装了 Docker Engine 的主机）主机的工具**。通常，我们会在本地系统上安装 `Docker Machine`。`Docker Machine` 有它自己的命令行客户端（`docker-machine`）和 `Docker Engine` 客户端（`docker`）。
 
@@ -33,7 +33,7 @@ date: 2018-01-31 10:31:49
 
 > Docker 化的主机本身就会被认为是（有时也被称之为）**被管理的“机器”**。
 
-![Docker Machine](../img/DockerMachineIntroduction/machine.png)
+![Docker Machine](/img/DockerMachineIntroduction/machine.png)
 
 ## Docker Machine 的作用
 
@@ -43,13 +43,13 @@ Docker Machine 能让你在各种 Linux 机子上配置多个远程 Docker 主�
 
 1. 希望在旧版本的桌面系统（Mac 或 Windows）运行 Docker；
 
-![machine-mac-win](../img/DockerMachineIntroduction/machine-mac-win.png)
+![machine-mac-win](/img/DockerMachineIntroduction/machine-mac-win.png)
 
 你的电脑的系统比较旧，不支持安装 `Docker for Mac` 或者 `Docker for Windows`。那么你可以使用 `Docker Toolbox` 在你的系统上先安装 `Docker Machine`，然后为本机上的虚拟机配置一个 `Docker Engine`，然后你连接上去就可以运行 `docker` 命令了。
 
 1. 在远程系统上配置 Dcoker 主机
 
-![provision-use-case](../img/DockerMachineIntroduction/provision-use-case.png)
+![provision-use-case](/img/DockerMachineIntroduction/provision-use-case.png)
 
 你想在本地运行 `docker` 命令比较简单地，只在本地配置一个 `Docker Engine` 即可。但是如果现在你有十几二十个远程服务器都想要配置多个 Docker 主机，那么总不能一个个配置过去，这时候你就可以使用 `Docker Machine` 了，它能帮助你高效的完成配置。
 

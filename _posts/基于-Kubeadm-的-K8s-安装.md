@@ -1,10 +1,10 @@
 ---
-title: 基于Kubeadm安装K8s集群
+title: 基于 Kubeadm 的 K8s 安装
 author: Huanqiang
-tags: [K8s, Kubeadm, 集群安装]
-categories: [Kubernetes]
-keyword: [Kubernetes, Kubeadm, 集群安装]
-date: 2018-03-19 10:31:49
+tags: [kubernetes, Kubeadm]
+categories: [kubernetes]
+keywords: [kubernetes, kubeadm]
+date: 2018-03-29 16:50:25
 ---
 
 > 本文以安装1.9.3 版本的 K8s 集群为例。需要的文件在 [Github](https://github.com/Huanqiang/K8s-1.9.3-setup) 上可下载。
@@ -54,7 +54,7 @@ Swap:             0           0           0
 
 ##### 方法一
 
-> 网上都是这个方法，但是我测试不行啊，不知道为什么…
+> 网上都是这个方法，但是我测试不行啊，不知道为什么...
 
 首先将 `vm.swappiness=0` 加入 `/etc/sysctl.d/k8s.conf` 文件中，在执行 `sysctl -p /etc/sysctl.d/k8s.conf` 使之生效。
 
@@ -115,7 +115,7 @@ apt-get update && apt-get install -y docker-ce=$(apt-cache madison docker-ce | g
 
 #### 出现的问题
 
-如果出现一下错误，请去 daocloud 配置一下 [Docker 加速器](https://www.daocloud.io/mirror#) 或者是 [中科大的加速器](https://lug.ustc.edu.cn/wiki/mirrors/help/docker)。
+如果出现一下错误，请去 daocloud 配置一下 [Docker 加速器](https://www.daocloud.io/mirror#) 或者是 [中科大的加速器](https://lug.ustc.edu.cn/wiki/mirrors/help/docker)<优先推荐>。
 
 ```bash
 error pulling image configuration: Get https://dseasb33srnrn.cloudfront.net/registry-v2/docker/registry/v2/blobs/sha256/73/73acd1f0cfadf6f56d30351ac633056a4fb50d455fd95b229f564ff0a7adecda/data?Expires=1521485533&Signature=DLri37AfNHayM0WDAKZSDvk1ppw7Pxvp0ak5LXuOClM1PzsFya0D~Vct1VA1bxI59kg8njgqhPPfFVRjMIWWOT7TIBt871dC~20th3fmLBkQ-bfmwnArvT12CiweIhN8sHJ0k4Idf8TKoQiZ6Dsv-~PfXrnd3FRo~q5t4m-0Rkk_&Key-Pair-Id=APKAJECH5M7VWIS5YZ6Q: net/http: TLS handshake timeout
@@ -151,8 +151,7 @@ etcd-amd64:3.1.11 \
 pause-amd64:3.0 \
 k8s-dns-sidecar-amd64:1.14.7 \
 k8s-dns-kube-dns-amd64:1.14.7 \
-k8s-dns-dnsmasq-nanny-amd64:1.14.7 \
-kubernetes-dashboard-amd64:v1.8.3)
+k8s-dns-dnsmasq-nanny-amd64:1.14.7)
 for imageName in ${images[@]} ; do
   sudo docker pull mirrorgooglecontainers/$imageName
   sudo docker tag mirrorgooglecontainers/$imageName gcr.io/google_containers/$imageName
@@ -162,13 +161,18 @@ done
 
 ```bash
 sudo docker pull jmgao1983/flannel:v0.10.0-amd64
+sudo docker pull mirrorgooglecontainers/kubernetes-dashboard-amd64:v1.8.3
+
 sudo docker tag jmgao1983/flannel:v0.10.0-amd64 quay.io/coreos/flannel:v0.10.0-amd64
+sudo docker tag mirrorgooglecontainers/kubernetes-dashboard-amd64:v1.8.3 k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3
+
 sudo docker rmi jmgao1983/flannel:v0.10.0-amd64
+sudo docker rmi mirrorgooglecontainers/kubernetes-dashboard-amd64:v1.8.3
 ```
 
 > 这里的 `docker image` 来源于 `docker hub` 的 `mirrorgooglecontainers` 这个大神的贡献。
 >
-> 后面拉取的这个 `flannel 的 image` 是下一步中的 `flannel` 所需要的。
+> 后面拉取的这个 `flannel 的 image`  是下一步中的 `flannel` 所需要的。
 
 ### 4. 启动集群
 
@@ -224,7 +228,7 @@ sudo docker pull jmgao1983/flannel:v0.10.0-amd64
 
 sudo docker tag mirrorgooglecontainers/kube-proxy-amd64:v1.9.3 gcr.io/google_containers/kube-proxy-amd64:v1.9.3
 sudo docker tag mirrorgooglecontainers/pause-amd64:3.0 gcr.io/google_containers/pause-amd64:3.0
-sudo docker tag mirrorgooglecontainers/kubernetes-dashboard-amd64:v1.8.3 gcr.io/google_containers/kubernetes-dashboard-amd64:v1.8.3
+sudo docker tag mirrorgooglecontainers/kubernetes-dashboard-amd64:v1.8.3 k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3
 sudo docker tag jmgao1983/flannel:v0.10.0-amd64 quay.io/coreos/flannel:v0.10.0-amd64
 
 sudo docker rmi mirrorgooglecontainers/kube-proxy-amd64:v1.9.3 
@@ -260,7 +264,7 @@ Mar 19 16:11:29 k8s-master-demo kubelet[4310]: E0319 16:11:29.379674    4310 kub
 
 > 关于 flannel 要注意的是，每一个节点都需要 flannel 这个 Docker 镜像，所以每一个节点都是要拉取的。
 
-如果使用 `sudo kubectl get pods --all-namespaces` 出现这样的错误：
+如果使用  `sudo kubectl get pods --all-namespaces` 出现这样的错误：
 
 ```bash
 kube-system   kube-flannel-ds-7nt8p                     0/1       Init:ErrImagePull       0          49m
@@ -281,5 +285,4 @@ sudo docker tag jmgao1983/flannel:v0.10.0-amd64 quay.io/coreos/flannel:v0.10.0-a
 1. [Docker快速安装以及换镜像源](https://www.jianshu.com/p/34d3b4568059)：Docker 加速器配置；
 2. [kubernetes 1.8.7 国内安装(kubeadm)](https://my.oschina.net/andylo25/blog/1618342)：本文的主要参考文献之一；
 3. [Ubuntu | 使用kubeadm方式安装kubernetes完整过程](http://www.sohu.com/a/205878489_468741)：本文的主要参考文献之一；
-4. [使用kubeadm部署k8s1.8](https://segmentfault.com/a/1190000012415387)：提到了 `kubeadm`、`kubectl`、`kubelet`、`kubernetes-cni` 这四个安装包的下载方式；
-
+4. [使用kubeadm部署k8s1.8](https://segmentfault.com/a/1190000012415387)：提到了  `kubeadm`、`kubectl`、`kubelet`、`kubernetes-cni` 这四个安装包的下载方式；

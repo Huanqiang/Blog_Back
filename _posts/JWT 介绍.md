@@ -112,7 +112,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9. eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYX
 
 > Cookie 是由客户端（通常是浏览器）保存的小型文本信息，其内容是一系列的键值对，是由 HTTP 服务器设置并保存在浏览器上的信息。
 
-![Session 认证流程示意图](../img/JWT/Session.jpg)
+![Session 认证流程示意图](/img/JWT/Session.jpg)
 
 [Session 认证流程示意图](http://huanqiang.wang/img/JWT/Session.jpg)
 

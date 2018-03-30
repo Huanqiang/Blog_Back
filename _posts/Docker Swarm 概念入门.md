@@ -45,7 +45,7 @@ date: 2018-02-02 09:31:49
 
    > 默认情况下，管理节点也是一个工作节点，但是你也将其配置为仅运行管理服务的节点。
 
-![SwarmNode](../img/DockerSwarmMode/SwarmNode.png)
+![SwarmNode](/img/DockerSwarmMode/SwarmNode.png)
 
 [SwarmNode](http://huanqiang.wang/img/DockerSwarmMode/SwarmNode.png)
 
@@ -60,7 +60,7 @@ date: 2018-02-02 09:31:49
 - `replicated services`：按照一定的规则在各个工作节点上运行制定个数的任务；
 - `global services`：指每一个工作节点上运行一个服务；
 
-![SwarmServicesAndTasks](../img/DockerSwarmMode/SwarmServicesAndTasks.png)
+![SwarmServicesAndTasks](/img/DockerSwarmMode/SwarmServicesAndTasks.png)
 
 [SwarmServicesAndTasks](http://huanqiang.wang/img/DockerSwarmMode/SwarmServicesAndTasks.png)
 

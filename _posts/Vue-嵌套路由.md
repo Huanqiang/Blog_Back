@@ -13,7 +13,7 @@ date: 2017-02-07 08:31:49
 
 <!-- more -->
 
-![图标的两种状态](../img/Nested-Route/Nested-Route.png)
+![图标的两种状态](/img/Nested-Route/Nested-Route.png)
 
 [图标的两种状态](http://huanqiang.wang/img/Nested-Route/Nested-Route.png)
 

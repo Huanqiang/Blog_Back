@@ -37,7 +37,7 @@ Docker 也是一种虚拟化技术，那么它与传统的虚拟机技术有什�
 
 所以由此我们可以看出传统虚拟化技术是先虚拟出了一套硬件系统，然后在此硬件系统上，运行了一个完整的操作系统，然后就可以使用各类软件、进程了。其实和我们的真实的电脑上操作的流程是差不多的。
 
-![传统虚拟化技术](../img/Docker_Introduce/Docker_Virtual_Machines.png)
+![传统虚拟化技术](/img/Docker_Introduce/Docker_Virtual_Machines.png)
 
 [传统虚拟化技术](http://huanqiang.wang/img/Docker_Introduce/Docker_Virtual_Machines.png)
 
@@ -45,7 +45,7 @@ Docker 也是一种虚拟化技术，那么它与传统的虚拟机技术有什�
 
 Docker 则不需要虚拟这样一套硬件系统，也不需要一个完整的操作系统。它将容器中的应用程序**直接运行与宿主机的内核**，容器没有自己的内核。
 
-![Docker的虚拟化技术](../img/Docker_Introduce/Docker_Virtual.png)
+![Docker的虚拟化技术](/img/Docker_Introduce/Docker_Virtual.png)
 
 [Docker的虚拟化技术](http://huanqiang.wang/img/Docker_Introduce/Docker_Virtual.png)
 

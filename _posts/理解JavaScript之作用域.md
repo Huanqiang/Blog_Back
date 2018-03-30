@@ -162,7 +162,7 @@ changeFruit();
 
 现在，我们来看一下这个作用域链：
 
-![作用域链](../img/JavaScript/ScopeChain.png)
+![作用域链](/img/JavaScript/ScopeChain.png)
 
 [作用域链](http://huanqiang.wang/img/JavaScript/ScopeChain.png)
 
