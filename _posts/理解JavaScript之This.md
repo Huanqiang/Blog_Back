@@ -25,7 +25,7 @@ date: 2017-05-06 08:31:49
 
 > 请先阅读 **作为方法进行调用**，在回过头来理解这里；
 
-```
+```javascript
 var person = {
     name: "xiaoxiao",
     create(name) {
@@ -115,7 +115,7 @@ console.log(creep() === global);	// 1. 输出 true
 var ninja = {
     skulk: creep
 };
-console.log(ninja.skulk() === ninja1); // 2. 输出 true
+console.log(ninja.skulk() === ninja); // 2. 输出 true
 
 console.log(creep() === global);	// 3. 输出 true
 ```

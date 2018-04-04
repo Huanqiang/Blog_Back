@@ -280,6 +280,10 @@ sudo docker tag jmgao1983/flannel:v0.10.0-amd64 quay.io/coreos/flannel:v0.10.0-a
 
 然后等会就会 pod 应用你下载的这个替代镜像重启。
 
+### 3. 查看 `iptables`
+
+查看 `iptables`：`sudo iptables -S -t nat`；
+
 ## 五、参考资料
 
 1. [Docker快速安装以及换镜像源](https://www.jianshu.com/p/34d3b4568059)：Docker 加速器配置；

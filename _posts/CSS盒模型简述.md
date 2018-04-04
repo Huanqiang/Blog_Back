@@ -11,11 +11,11 @@ date: 2017-09-27 10:31:49
 
 盒模型是 CSS 的基石，在一个文档中，每一个标签（元素）都被表示为矩形的盒子。渲染引擎的目标则是确定这些盒子的尺寸和属性（颜色、边框、背景和位置）。
 
-<!-- more -->
-
 一个盒子的实际大小由它的外边距（margin）、边框（border）、内边距（padding）和内容（content）这四个部分所决定。
 
-![盒子实际大小示意图](https://mdn.mozillademos.org/files/72/boxmodel%20(1).png)
+![boxmodel](/img/Css-Box/boxmodel.png)
+
+<!-- more -->
 
 ### 内边距
 
